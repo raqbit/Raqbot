@@ -4,8 +4,9 @@ import CommandManager = require('./commands/command.manager');
 import Firebase = require('./util/firebase');
 import Statistics = require('./features/statistics');
 
+import Settings = require('../settings')
 const firebaseKey = require('../priv/serviceAccountKey.json');
-const settings = require('../settings.json');
+
 
 class Raqbot {
 
@@ -31,12 +32,18 @@ class Raqbot {
 
     constructor() {
         this.client = new Discord.Client();
-        this.firebase = new Firebase(firebaseKey, settings.dbURL);
+        this.firebase = new Firebase(firebaseKey, Settings.dbURL);
         this.statistics = new Statistics(this.firebase);
         this.cmdManager = new CommandManager(this);
 
         // Setting up events
         this.client.on('message', (message: Discord.Message) => this.onMessage(message));
+
+        if (Settings.dev.enabled) {
+            console.log('Running in dev mode.');
+        } else {
+            console.log('Running in normal mode.');
+        }
     }
 
     /**
@@ -60,16 +67,29 @@ class Raqbot {
      */
     onMessage(message: Discord.Message) {
 
-        // Extra type check needed for typescript
-        if (message.author.bot ||
-            (!settings.dev.enabled &&
-                message.channel instanceof Discord.GuildChannel
-                && message.channel.name === settings.dev.channel)) {
+        // Only channel input
+        if (message.channel.type != "text") {
             return;
         }
 
+        // Don't wanna log bot output
+        if (message.author.bot) {
+            return;
+        }
+
+        // Dev-mode checks
+        if (Settings.dev.enabled) {
+            if ((<Discord.TextChannel>message.channel).name !== Settings.dev.channel) {
+                return;
+            }
+        } else {
+            if ((<Discord.TextChannel>message.channel).name === Settings.dev.channel) {
+                return;
+            }
+        }
+
         // Checking for commands
-        if (message.content.charAt(0) === settings.cmdPrefix) {
+        if (message.content.charAt(0) === Settings.cmdPrefix) {
             this.cmdManager.evalCommand(message);
             return;
         }

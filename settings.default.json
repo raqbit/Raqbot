@@ -1,8 +1,0 @@
-{
-    "dev": {
-        "enabled": false,
-        "channel": ""
-    },
-    "cmdPrefix": "?",
-    "dbURL": ""
-}

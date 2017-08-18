@@ -1,6 +1,8 @@
 # Raqbot
 Statistics bot for Discord, using firebase.
 
+**CURRENTLY ONLY SETUP FOR 1 SERVER**
+
 ## Setting it up:
 * Place serviceAccountKey.json in priv/ directory.
 * Place discordKey.json (`{"key": "KEY"}`) in priv/ directory.

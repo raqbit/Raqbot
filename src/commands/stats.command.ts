@@ -30,7 +30,7 @@ class StatsCommand extends Command {
                 globalStats.charCount = 0;
             }
 
-            message.channel.sendMessage('', {
+            message.channel.send('', {
                 embed: new Discord.RichEmbed()
                     .setTitle('Mancave-Statistics')
                     .setDescription('**Global Stats:**\nMessages sent: ' + globalStats.msgCount + '\nCharacters sent: ' + globalStats.charCount + '\n')
@@ -42,7 +42,7 @@ class StatsCommand extends Command {
 
         }, (error) => {
             // Promise rejected
-            message.channel.sendMessage('Could not fetch global statistics, see console for error.')
+            message.channel.send('Could not fetch global statistics, see console for error.')
             console.log(error);
             return;
         });
