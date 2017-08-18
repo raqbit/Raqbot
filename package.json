@@ -1,0 +1,24 @@
+{
+  "name": "raqbot",
+  "version": "0.5.5",
+  "description": "Raqbit's bot for Discord",
+  "main": "src/index.ts",
+  "author": "Raqbit <raqbit@outlook.com>",
+  "license": "GPL-2.0",
+  "scripts": {
+    "start": "ts-node ./src/index.ts",
+    "watch": "nodemon --exec ./node_modules/.bin/ts-node -- ./src/index.ts"
+  },
+  "dependencies": {
+    "@types/linkify-it": "^2.0.1",
+    "@types/node": "^8.0.20",
+    "discord.js": "^11.0.0",
+    "erlpack": "hammerandchisel/erlpack",
+    "firebase-admin": "^4.1.0",
+    "linkify-it": "^2.0.3",
+    "nodemon": "^1.11.0",
+    "tlds": "^1.182.0",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.4.2"
+  }
+}
