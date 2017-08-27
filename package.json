@@ -4,7 +4,7 @@
   "description": "Raqbit's bot for Discord",
   "main": "src/index.ts",
   "author": "Raqbit <raqbit@outlook.com>",
-  "license": "GPL-2.0",
+  "license": "GPL-3.0",
   "scripts": {
     "start": "ts-node ./src/index.ts",
     "watch": "nodemon --exec ./node_modules/.bin/ts-node -- ./src/index.ts"
