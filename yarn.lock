@@ -79,7 +79,7 @@
     string-format-obj "^1.1.0"
     through2 "^2.0.3"
 
-"@google-cloud/firestore@^0.10.1":
+"@google-cloud/firestore@^0.10.0":
   version "0.10.1"
   resolved "https://registry.yarnpkg.com/@google-cloud/firestore/-/firestore-0.10.1.tgz#ef6e28b25c51490290147b0a4b547c602a998768"
   dependencies:
@@ -179,7 +179,7 @@
   version "8.0.20"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.20.tgz#65c7375255c24b184c215a5d0b63247c32f01c91"
 
-"@types/node@^8.0.32", "@types/node@^8.0.53":
+"@types/node@^8.0.53":
   version "8.0.57"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.57.tgz#e5d8b4dc112763e35cfc51988f4f38da3c486d99"
 
@@ -774,16 +774,16 @@ fill-range@^2.1.0:
     repeat-element "^1.1.2"
     repeat-string "^1.5.2"
 
-firebase-admin@^5.6.0:
-  version "5.6.0"
-  resolved "https://registry.yarnpkg.com/firebase-admin/-/firebase-admin-5.6.0.tgz#aaf21c0bf031d1ec9e35fc8f0f68b2ebd42cdc8a"
+firebase-admin@^5.7.0:
+  version "5.7.0"
+  resolved "https://registry.yarnpkg.com/firebase-admin/-/firebase-admin-5.7.0.tgz#c8c72dc400cb2d742d0cf322f11ce138d260a424"
   dependencies:
     "@firebase/app" "^0.1.1"
     "@firebase/database" "^0.1.3"
-    "@google-cloud/firestore" "^0.10.1"
+    "@google-cloud/firestore" "^0.10.0"
     "@google-cloud/storage" "^1.2.1"
     "@types/google-cloud__storage" "^1.1.1"
-    "@types/node" "^8.0.32"
+    "@types/node" "^8.0.53"
     faye-websocket "0.9.3"
     jsonwebtoken "7.4.3"
     node-forge "0.7.1"
