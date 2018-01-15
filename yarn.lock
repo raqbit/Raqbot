@@ -613,15 +613,15 @@ diff@^3.1.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/diff/-/diff-3.3.0.tgz#056695150d7aa93237ca7e378ac3b1682b7963b9"
 
-discord.js@^11.2.1:
-  version "11.2.1"
-  resolved "https://registry.yarnpkg.com/discord.js/-/discord.js-11.2.1.tgz#bfc0f5a8b6398dc372d026e503592646456053fc"
+discord.js@^11.3.0:
+  version "11.3.0"
+  resolved "https://registry.yarnpkg.com/discord.js/-/discord.js-11.3.0.tgz#0d3e2ae12846e4e002bdbdfe3cb265e2bf24bf32"
   dependencies:
     long "^3.2.0"
     prism-media "^0.0.1"
-    snekfetch "^3.3.0"
+    snekfetch "^3.6.1"
     tweetnacl "^1.0.0"
-    ws "^3.1.0"
+    ws "^4.0.0"
 
 dot-prop@^2.4.0:
   version "2.4.0"
@@ -2044,7 +2044,7 @@ snakeize@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/snakeize/-/snakeize-0.1.0.tgz#10c088d8b58eb076b3229bb5a04e232ce126422d"
 
-snekfetch@^3.3.0:
+snekfetch@^3.6.1:
   version "3.6.1"
   resolved "https://registry.yarnpkg.com/snekfetch/-/snekfetch-3.6.1.tgz#9b77fa946cfa15c7041940593a2689dc547427ea"
 
@@ -2419,9 +2419,9 @@ write-file-atomic@^2.0.0:
     imurmurhash "^0.1.4"
     signal-exit "^3.0.2"
 
-ws@^3.1.0:
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-3.3.2.tgz#96c1d08b3fefda1d5c1e33700d3bfaa9be2d5608"
+ws@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-4.0.0.tgz#bfe1da4c08eeb9780b986e0e4d10eccd7345999f"
   dependencies:
     async-limiter "~1.0.0"
     safe-buffer "~5.1.0"
