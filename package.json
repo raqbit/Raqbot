@@ -18,7 +18,7 @@
     "linkify-it": "^2.0.3",
     "nodemon": "^1.15.1",
     "tlds": "^1.182.0",
-    "ts-node": "^4.1.0",
+    "ts-node": "^5.0.0",
     "typescript": "^2.7.2"
   }
 }
