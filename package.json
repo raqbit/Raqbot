@@ -10,7 +10,7 @@
     "watch": "nodemon --exec ./node_modules/.bin/ts-node -- ./src/index.ts"
   },
   "dependencies": {
-    "@types/linkify-it": "^2.0.2",
+    "@types/linkify-it": "^2.0.3",
     "@types/node": "^10.0.4",
     "discord.js": "^11.3.2",
     "erlpack": "hammerandchisel/erlpack",
