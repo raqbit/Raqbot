@@ -195,9 +195,9 @@
   dependencies:
     "@types/node" "*"
 
-"@types/linkify-it@^2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@types/linkify-it/-/linkify-it-2.0.2.tgz#0aa64171f6036ecc5aef87d7a8645df93c1ef56f"
+"@types/linkify-it@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@types/linkify-it/-/linkify-it-2.0.3.tgz#5352a2d7a35d7c77b527483cd6e68da9148bd780"
 
 "@types/long@^3.0.32":
   version "3.0.32"
