@@ -19,6 +19,6 @@
     "nodemon": "^1.17.4",
     "tlds": "^1.182.0",
     "ts-node": "^6.0.3",
-    "typescript": "^2.8.1"
+    "typescript": "^2.8.3"
   }
 }
