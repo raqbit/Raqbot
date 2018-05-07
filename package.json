@@ -16,7 +16,7 @@
     "erlpack": "hammerandchisel/erlpack",
     "firebase-admin": "^5.12.0",
     "linkify-it": "^2.0.3",
-    "nodemon": "^1.15.1",
+    "nodemon": "^1.17.4",
     "tlds": "^1.182.0",
     "ts-node": "^6.0.3",
     "typescript": "^2.8.1"
