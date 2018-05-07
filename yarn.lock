@@ -2781,9 +2781,9 @@ timed-out@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/timed-out/-/timed-out-4.0.1.tgz#f32eacac5a175bea25d7fab565ab3ed8741ef56f"
 
-tlds@^1.182.0:
-  version "1.182.0"
-  resolved "https://registry.yarnpkg.com/tlds/-/tlds-1.182.0.tgz#6f506e4a795e70f22c606652ce6a8cd0de88f8f8"
+tlds@^1.203.1:
+  version "1.203.1"
+  resolved "https://registry.yarnpkg.com/tlds/-/tlds-1.203.1.tgz#4dc9b02f53de3315bc98b80665e13de3edfc1dfc"
 
 to-object-path@^0.3.0:
   version "0.3.0"
