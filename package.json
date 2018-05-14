@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@types/linkify-it": "^2.0.3",
-    "@types/node": "^10.0.4",
+    "@types/node": "^10.0.8",
     "discord.js": "^11.3.2",
     "erlpack": "hammerandchisel/erlpack",
     "firebase-admin": "^5.12.0",
