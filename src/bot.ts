@@ -4,7 +4,8 @@ import CommandManager = require('./commands/command.manager');
 import Firebase = require('./util/firebase');
 import Statistics = require('./features/statistics');
 
-import Settings = require('../settings')
+import Settings = require('../settings');
+
 const firebaseKey = require('../priv/serviceAccountKey.json');
 
 
@@ -37,6 +38,7 @@ class Raqbot {
         this.cmdManager = new CommandManager(this);
 
         // Setting up events
+        this.client.on('ready', () => this.onBotReady());
         this.client.on('message', (message: Discord.Message) => this.onMessage(message));
 
         if (Settings.dev.enabled) {
@@ -58,6 +60,7 @@ class Raqbot {
      * Makes the bot logout & stops discord.js
      */
     logout() {
+        // noinspection JSIgnoredPromiseFromCall
         this.client.destroy();
     }
 
@@ -95,6 +98,11 @@ class Raqbot {
         }
 
         this.statistics.evalMessage(message);
+    }
+
+    private onBotReady() {
+        // noinspection JSIgnoredPromiseFromCall
+        this.client.user.setPresence({afk: false, status: "online", game: {name: "Spying on the GNC"}});
     }
 }
 
