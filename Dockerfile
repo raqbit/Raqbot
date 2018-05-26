@@ -1,19 +1,14 @@
-FROM node:6
+FROM node:9-alpine
 
 ARG HOME="/home/raqbot"
 
 WORKDIR ${HOME}
 # Install common text editors, git and delete caches
-RUN apt-get update && \
-	    apt-get install -y vim nano git && \
-	    apt-get clean && \
-	    rm -rf /var/lib/apt/lists/*
-
-RUN mkdir -p "${HOME}"
-
-RUN git clone https://github.com/raqbit/raqbot ${HOME} && \
-	npm install bufferutil uws && \
-	npm install
+RUN apk add --no-cache --virtual build-dependencies g++ make git python && \
+        mkdir -p "${HOME}" && \
+        git clone https://github.com/raqbit/raqbot ${HOME} && \
+        npm install bufferutil uws && \
+        apk del build-dependencies
 
 COPY settings.ts ${HOME}/settings.ts
 
