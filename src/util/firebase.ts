@@ -1,4 +1,5 @@
-import admin = require('firebase-admin');
+import * as admin from 'firebase-admin';
+import fetch from 'node-fetch';
 
 class Firebase {
 
@@ -7,12 +8,12 @@ class Firebase {
      */
     private database: admin.database.Database;
 
-    constructor(cert: any, url: string) {
+    constructor(cert: any, dbUrl: string, private functionsUrl: string) {
 
 
         admin.initializeApp({
             credential: admin.credential.cert(cert),
-            databaseURL: url
+            databaseURL: dbUrl
         });
 
         this.database = admin.database();
@@ -65,6 +66,25 @@ class Firebase {
         scoreRef.transaction((current_value) => {
             return (current_value || 0) + 1;
         });
+    }
+
+    async getRating(message: string): Promise<number> {
+        const fetchOptions = {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: 'message=' + message,
+        };
+
+        try {
+            const res = await fetch(this.functionsUrl + '/rating', fetchOptions);
+            const jsonResponse = await res.json();
+            return jsonResponse.rating;
+        } catch (e) {
+            console.log(e);
+            throw new Error('rating-error');
+        }
     }
 }
 

@@ -33,7 +33,7 @@ class Raqbot {
 
     constructor() {
         this.client = new Discord.Client();
-        this.firebase = new Firebase(firebaseKey, Settings.dbURL);
+        this.firebase = new Firebase(firebaseKey, Settings.dbURL, Settings.functionsURL);
         this.statistics = new Statistics(this.firebase);
         this.cmdManager = new CommandManager(this);
 

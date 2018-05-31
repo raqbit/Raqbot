@@ -23,6 +23,12 @@ class Util {
 
         return wordList;
     }
+
+    static async sleep(amount: number) {
+        setTimeout(() => {
+            return;
+        }, amount);
+    }
 }
 
 export = Util;

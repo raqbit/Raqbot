@@ -4,7 +4,8 @@ const config = {
         channel: 'bot-testing'
     },
     cmdPrefix: '?',
-    dbURL: ''
-}
+    dbURL: '',
+    functionsURL: '',
+};
 
 export = config;

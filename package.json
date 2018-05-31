@@ -10,15 +10,19 @@
     "watch": "nodemon --exec ./node_modules/.bin/ts-node -- ./src/index.ts"
   },
   "dependencies": {
-    "@types/linkify-it": "^2.0.3",
-    "@types/node": "^10.0.8",
     "discord.js": "^11.3.2",
     "erlpack": "hammerandchisel/erlpack",
     "firebase-admin": "^5.12.0",
     "linkify-it": "^2.0.3",
+    "node-fetch": "^2.1.2",
     "nodemon": "^1.17.4",
     "tlds": "^1.203.1",
     "ts-node": "^6.0.3",
     "typescript": "^2.8.3"
+  },
+  "devDependencies": {
+    "@types/linkify-it": "^2.0.3",
+    "@types/node": "^10.1.4",
+    "@types/node-fetch": "^2.1.0"
   }
 }

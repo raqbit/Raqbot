@@ -2,6 +2,7 @@ import Discord = require('discord.js');
 import Raqbot = require('../bot');
 import Command = require('./command')
 import StatsCommand = require('./stats.command')
+import RateCommand = require("./rate.command");
 
 class CommandManager {
 
@@ -13,6 +14,7 @@ class CommandManager {
     constructor(bot: Raqbot) {
         // Put new commands here
         this.commands.push(new StatsCommand(bot, ['stats']));
+        this.commands.push(new RateCommand(bot, ['rate']));
     }
 
     /**
