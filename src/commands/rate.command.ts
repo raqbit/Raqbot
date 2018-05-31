@@ -39,7 +39,7 @@ class RateCommand extends Command {
             await Util.sleep(200);
             if (rating === 5) {
                 await message.react(feelsgoodman)
-            } else if (rating === 1) {
+            } else if (rating === 0) {
                 await message.react(reee)
             }
         }).catch(() => {
