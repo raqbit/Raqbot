@@ -11,7 +11,7 @@
   resolved "https://registry.yarnpkg.com/@firebase/app/-/app-0.1.10.tgz#fc80c62dbe4d601cad1495bc095309adb9074f85"
   dependencies:
     "@firebase/app-types" "0.1.2"
-    "@firebase/util" "0.1.10"
+    "@firebase/emoteUtil" "0.1.10"
     tslib "^1.9.0"
 
 "@firebase/database-types@0.2.0":
@@ -24,7 +24,7 @@
   dependencies:
     "@firebase/database-types" "0.2.0"
     "@firebase/logger" "0.1.0"
-    "@firebase/util" "0.1.10"
+    "@firebase/emoteUtil" "0.1.10"
     faye-websocket "0.11.1"
     tslib "^1.9.0"
 
@@ -34,7 +34,7 @@
 
 "@firebase/util@0.1.10":
   version "0.1.10"
-  resolved "https://registry.yarnpkg.com/@firebase/util/-/util-0.1.10.tgz#7898f6e36c8231c287c4024c313000df677b1363"
+  resolved "https://registry.yarnpkg.com/@firebase/emoteUtil/-/emoteUtil-0.1.10.tgz#7898f6e36c8231c287c4024c313000df677b1363"
   dependencies:
     tslib "^1.9.0"
 
@@ -666,7 +666,7 @@ core-js@^2.0.0:
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
-  resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
+  resolved "https://registry.yarnpkg.com/core-emoteUtil-is/-/core-emoteUtil-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
 
 create-error-class@^3.0.0, create-error-class@^3.0.2:
   version "3.0.2"
@@ -2196,7 +2196,7 @@ power-assert-renderer-assertion@^1.0.7:
   resolved "https://registry.yarnpkg.com/power-assert-renderer-assertion/-/power-assert-renderer-assertion-1.1.1.tgz#cbfc0e77e0086a8f96af3f1d8e67b9ee7e28ce98"
   dependencies:
     power-assert-renderer-base "^1.1.1"
-    power-assert-util-string-width "^1.1.1"
+    power-assert-emoteUtil-string-width "^1.1.1"
 
 power-assert-renderer-base@^1.1.1:
   version "1.1.1"
@@ -2218,7 +2218,7 @@ power-assert-renderer-diagram@^1.0.7:
   dependencies:
     core-js "^2.0.0"
     power-assert-renderer-base "^1.1.1"
-    power-assert-util-string-width "^1.1.1"
+    power-assert-emoteUtil-string-width "^1.1.1"
     stringifier "^1.3.0"
 
 power-assert-renderer-file@^1.0.7:
@@ -2229,7 +2229,7 @@ power-assert-renderer-file@^1.0.7:
 
 power-assert-util-string-width@^1.1.1:
   version "1.1.1"
-  resolved "https://registry.yarnpkg.com/power-assert-util-string-width/-/power-assert-util-string-width-1.1.1.tgz#be659eb7937fdd2e6c9a77268daaf64bd5b7c592"
+  resolved "https://registry.yarnpkg.com/power-assert-emoteUtil-string-width/-/power-assert-emoteUtil-string-width-1.1.1.tgz#be659eb7937fdd2e6c9a77268daaf64bd5b7c592"
   dependencies:
     eastasianwidth "^0.1.1"
 
@@ -2338,19 +2338,19 @@ readable-stream@^2.0.0, readable-stream@^2.0.2, readable-stream@^2.0.6, readable
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.3.3.tgz#368f2512d79f9d46fdfc71349ae7878bbc1eb95c"
   dependencies:
-    core-util-is "~1.0.0"
+    core-emoteUtil-is "~1.0.0"
     inherits "~2.0.3"
     isarray "~1.0.0"
     process-nextick-args "~1.0.6"
     safe-buffer "~5.1.1"
     string_decoder "~1.0.3"
-    util-deprecate "~1.0.1"
+    emoteUtil-deprecate "~1.0.1"
 
 readable-stream@~1.0.32:
   version "1.0.34"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-1.0.34.tgz#125820e34bc842d2f2aaafafe4c2916ee32c157c"
   dependencies:
-    core-util-is "~1.0.0"
+    core-emoteUtil-is "~1.0.0"
     inherits "~2.0.1"
     isarray "0.0.1"
     string_decoder "~0.10.x"
@@ -2555,11 +2555,11 @@ snapdragon-node@^2.0.1:
   dependencies:
     define-property "^1.0.0"
     isobject "^3.0.0"
-    snapdragon-util "^3.0.1"
+    snapdragon-emoteUtil "^3.0.1"
 
 snapdragon-util@^3.0.1:
   version "3.0.1"
-  resolved "https://registry.yarnpkg.com/snapdragon-util/-/snapdragon-util-3.0.1.tgz#f956479486f2acd79700693f6f7b805e45ab56e2"
+  resolved "https://registry.yarnpkg.com/snapdragon-emoteUtil/-/snapdragon-emoteUtil-3.0.1.tgz#f956479486f2acd79700693f6f7b805e45ab56e2"
   dependencies:
     kind-of "^3.2.0"
 
@@ -2970,7 +2970,7 @@ use@^2.0.0:
 
 util-deprecate@~1.0.1:
   version "1.0.2"
-  resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
+  resolved "https://registry.yarnpkg.com/emoteUtil-deprecate/-/emoteUtil-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
 
 uuid@^3.0.0, uuid@^3.1.0:
   version "3.1.0"
@@ -2981,7 +2981,7 @@ verror@1.10.0:
   resolved "https://registry.yarnpkg.com/verror/-/verror-1.10.0.tgz#3a105ca17053af55d6e270c1f8288682e18da400"
   dependencies:
     assert-plus "^1.0.0"
-    core-util-is "1.0.2"
+    core-emoteUtil-is "1.0.2"
     extsprintf "^1.2.0"
 
 websocket-driver@>=0.5.1:

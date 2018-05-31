@@ -25,9 +25,11 @@ class Util {
     }
 
     static async sleep(amount: number) {
-        setTimeout(() => {
-            return;
-        }, amount);
+        return new Promise(((resolve) =>  {
+            setTimeout(() => {
+                resolve();
+            }, amount);
+        }));
     }
 }
 
