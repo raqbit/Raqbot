@@ -23,26 +23,31 @@ class RateCommand extends Command {
         // Arguments were split by space and label removed.
         const msgToBeRated = args.join(' ');
 
-        // Printing RATED
-        for(const letter of emoteUtil.rated) {
-            await message.react(letter);
-            await Util.sleep(200);
-        }
+        try {
+            // Printing RATED
+            for (const letter of emoteUtil.rated) {
+                await message.react(letter);
+                await Util.sleep(200);
+            }
 
-        // Get rating
-        this.firebase.getRating(msgToBeRated).then(async rating => {
-            // react with rating
+            const rating = await this.firebase.getRating(msgToBeRated);
+
             await message.react(emoteUtil.ratingNums[rating]);
+
             await Util.sleep(200);
+
             if (rating === 5) {
                 await message.react(emoteUtil.feelsgoodman)
             } else if (rating === 0) {
                 await message.react(emoteUtil.reee)
             }
-        }).catch(async () => {
-            message.channel.send('Something went wrong while trying to get a rating, please try again.')
+        } catch (err) {
+            console.log(err);
+            message.channel.send('Something went wrong while trying to get a rating, please try again.');
             await message.clearReactions();
-        });
+        }
+
+
     }
 }
 
