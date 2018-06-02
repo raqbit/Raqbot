@@ -1,8 +1,8 @@
-import * as  Discord from 'discord.js';
+import * as Discord from 'discord.js';
 import Raqbot from '../bot';
 
-import Command from './command';
 import Firebase from '../util/firebase';
+import Command from './command';
 
 class StatsCommand extends Command {
 
@@ -13,7 +13,7 @@ class StatsCommand extends Command {
         this.firebase = bot.firebase;
     }
 
-    execute(message: Discord.Message, args: string[]) {
+    public execute(message: Discord.Message, args: string[]) {
 
         this.firebase.fetchGlobalStats().then((globalStats) => {
             if (!globalStats) {
@@ -33,16 +33,17 @@ class StatsCommand extends Command {
             message.channel.send('', {
                 embed: new Discord.RichEmbed()
                     .setTitle('Mancave-Statistics')
-                    .setDescription('**Global Stats:**\nMessages sent: ' + globalStats.msgCount + '\nCharacters sent: ' + globalStats.charCount + '\n')
+                    .setDescription('**Global Stats:**\nMessages sent: ' +
+                        globalStats.msgCount + '\nCharacters sent: ' + globalStats.charCount + '\n')
                     .setURL('https://mancave-statistics.firebaseapp.com')
                     .setColor('#ffc800')
                     .setThumbnail('https://mancave-statistics.firebaseapp.com/favicon/mstile-310x310.png')
-                    .setFooter('Click link for all statistics.')
+                    .setFooter('Click link for all statistics.'),
             });
 
         }, (error) => {
             // Promise rejected
-            message.channel.send('Could not fetch global statistics, see console for error.')
+            message.channel.send('Could not fetch global statistics, see console for error.');
             console.log(error);
             return;
         });

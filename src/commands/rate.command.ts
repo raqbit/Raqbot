@@ -1,10 +1,9 @@
 import * as Discord from 'discord.js';
-import Command from './command';
 import Raqbot from '../bot';
+import * as emoteUtil from '../util/emote';
 import Firebase from '../util/firebase';
 import Util from '../util/util';
-import * as emoteUtil from '../util/emote';
-
+import Command from './command';
 
 class RateCommand extends Command {
 
@@ -15,7 +14,7 @@ class RateCommand extends Command {
         this.firebase = bot.firebase;
     }
 
-    async execute(message: Discord.Message, args: string[]) {
+    public async execute(message: Discord.Message, args: string[]) {
         if (args.length < 1) {
             message.channel.send('Please give me something to rate. Usage: ?rate <thing to rate>');
             return;
@@ -42,7 +41,7 @@ class RateCommand extends Command {
         } catch (err) {
             console.log(err);
             message.channel.send('Something went wrong while trying to get a rating, please try again.');
-            await message.reactions.forEach(value => value.remove());
+            await message.reactions.forEach((value) => value.remove());
         }
 
     }
