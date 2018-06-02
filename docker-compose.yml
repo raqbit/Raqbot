@@ -5,3 +5,6 @@ services:
     container_name: raqbot
     build: .
     restart: always
+    volumes:
+      - ./priv:/home/raqbot/priv
+      - ./settings.json:/home/raqbot/settings.json

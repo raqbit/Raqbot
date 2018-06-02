@@ -1,6 +1,6 @@
 FROM node:9-alpine
 
-ARG HOME="/home/raqbot"
+ENV HOME "/home/raqbot"
 
 WORKDIR ${HOME}
 
@@ -9,12 +9,9 @@ RUN apk add --no-cache --virtual build-dependencies g++ make git python && \
         git clone https://github.com/raqbit/raqbot ${HOME} && \
         yarn && \
         yarn build && \
+        rm -r $HOME/src && \
         apk del build-dependencies
 
-COPY settings.json ${HOME}/settings.json
+VOLUME "${HOME}"
 
-COPY priv ${HOME}/priv
-
-USER raqbot
-
-ENTRYPOINT ["yarn", "start"]
+ENTRYPOINT ["yarn", "start:prod"]
