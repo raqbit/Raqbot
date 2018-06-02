@@ -6,23 +6,27 @@
   "author": "Raqbit <raqbit@outlook.com>",
   "license": "GPL-3.0",
   "scripts": {
+    "build": "tsc",
     "start": "ts-node ./src/index.ts",
+    "start:prod": "node dist/index.js",
     "watch": "nodemon --exec ./node_modules/.bin/ts-node -- ./src/index.ts"
   },
   "dependencies": {
+    "bufferutil": "^3.0.5",
     "discord.js": "^11.3.2",
     "erlpack": "hammerandchisel/erlpack",
     "firebase-admin": "^5.12.0",
     "linkify-it": "^2.0.3",
     "node-fetch": "^2.1.2",
-    "tlds": "^1.203.1"
+    "tlds": "^1.203.1",
+    "uws": "^10.148.0"
   },
   "devDependencies": {
-    "ts-node": "^6.0.3",
-    "typescript": "^2.8.3",
     "@types/linkify-it": "^2.0.3",
     "@types/node": "^10.1.4",
     "@types/node-fetch": "^2.1.0",
-    "nodemon": "^1.17.4"
+    "nodemon": "^1.17.4",
+    "ts-node": "^6.0.3",
+    "typescript": "^2.8.3"
   }
 }
