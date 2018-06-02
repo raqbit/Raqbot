@@ -1,9 +1,9 @@
-import Discord = require('discord.js');
-import Command = require("./command");
-import Raqbot = require("../bot");
-import Firebase = require("../util/firebase");
-import Util = require("../util/util");
-import * as emoteUtil from "../util/emote";
+import * as Discord from 'discord.js';
+import Command from './command';
+import Raqbot from '../bot';
+import Firebase from '../util/firebase';
+import Util from '../util/util';
+import * as emoteUtil from '../util/emote';
 
 
 class RateCommand extends Command {
@@ -17,7 +17,7 @@ class RateCommand extends Command {
 
     async execute(message: Discord.Message, args: string[]) {
         if (args.length < 1) {
-            message.channel.send('Please give me something to rate. Usage: ?rate <thing to rate>')
+            message.channel.send('Please give me something to rate. Usage: ?rate <thing to rate>');
             return;
         }
         // Arguments were split by space and label removed.
@@ -35,18 +35,17 @@ class RateCommand extends Command {
             await message.react(emoteUtil.ratingNums[rating]);
 
             if (rating === 5) {
-                await message.react(emoteUtil.feelsgoodman)
+                await message.react(emoteUtil.feelsgoodman);
             } else if (rating === 0) {
-                await message.react(emoteUtil.reee)
+                await message.react(emoteUtil.reee);
             }
         } catch (err) {
             console.log(err);
             message.channel.send('Something went wrong while trying to get a rating, please try again.');
-            await message.reactions.forEach(value => value.remove())
+            await message.reactions.forEach(value => value.remove());
         }
-
 
     }
 }
 
-export = RateCommand;
+export default RateCommand;

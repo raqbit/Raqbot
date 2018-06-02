@@ -1,0 +1,9 @@
+{
+  "dev": {
+    "enabled": false,
+    "channel": "bot-testing"
+  },
+  "cmdPrefix": "?",
+  "dbURL": "",
+  "functionsURL": ""
+}

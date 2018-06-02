@@ -11,7 +11,7 @@ RUN apk add --no-cache --virtual build-dependencies g++ make git python && \
         npm install bufferutil uws && \
         apk del build-dependencies
 
-COPY settings.ts ${HOME}/settings.ts
+COPY settings.json ${HOME}/settings.json
 
 COPY priv ${HOME}/priv
 

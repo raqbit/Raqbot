@@ -1,25 +1,15 @@
-import Discord = require('discord.js');
+import * as Discord from 'discord.js';
 
-import CommandManager = require('./commands/command.manager');
-import Firebase = require('./util/firebase');
-import Statistics = require('./features/statistics');
+import CommandManager from './commands/command.manager';
+import Statistics from './features/statistics';
+import Firebase from './util/firebase';
+import Util from './util/util';
 
-import Settings = require('../settings');
+const Settings = Util.loadJSONFile('../../settings.json');
 
-const firebaseKey = require('../priv/serviceAccountKey.json');
-
+const firebaseKey =  Util.loadJSONFile('../../priv/serviceAccountKey.json');
 
 class Raqbot {
-
-    /**
-     * Discord.js client instance
-     */
-    private client: Discord.Client;
-
-    /**
-     * CommandManager instance for running commands
-     */
-    private cmdManager: CommandManager;
 
     /**
      * Firebase instance for interacting with the database
@@ -30,6 +20,16 @@ class Raqbot {
      * Statistics instance that keeps track of statistics
      */
     public statistics: Statistics;
+
+    /**
+     * Discord.js client instance
+     */
+    private client: Discord.Client;
+
+    /**
+     * CommandManager instance for running commands
+     */
+    private cmdManager: CommandManager;
 
     constructor() {
         this.client = new Discord.Client();
@@ -52,14 +52,14 @@ class Raqbot {
      * Logs the bot in using the auth key
      * @param key - Discord authentication key
      */
-    login(key: string): Promise<string> {
+    public login(key: string): Promise<string> {
         return this.client.login(key);
     }
 
     /**
      * Makes the bot logout & stops discord.js
      */
-    logout() {
+    public logout() {
         // noinspection JSIgnoredPromiseFromCall
         this.client.destroy();
     }
@@ -68,10 +68,10 @@ class Raqbot {
      * Is called when the bot receives a message
      * @param {Message} message - Message event
      */
-    onMessage(message: Discord.Message) {
+    public onMessage(message: Discord.Message) {
 
         // Only channel input
-        if (message.channel.type != "text") {
+        if (message.channel.type !== "text") {
             return;
         }
 
@@ -82,11 +82,11 @@ class Raqbot {
 
         // Dev-mode checks
         if (Settings.dev.enabled) {
-            if ((<Discord.TextChannel>message.channel).name !== Settings.dev.channel) {
+            if ((message.channel as Discord.TextChannel).name !== Settings.dev.channel) {
                 return;
             }
         } else {
-            if ((<Discord.TextChannel>message.channel).name === Settings.dev.channel) {
+            if ((message.channel as Discord.TextChannel).name === Settings.dev.channel) {
                 return;
             }
         }
@@ -106,4 +106,4 @@ class Raqbot {
     }
 }
 
-export = Raqbot;
+export default Raqbot;

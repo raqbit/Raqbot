@@ -10,10 +10,9 @@ class Firebase {
 
     constructor(cert: any, dbUrl: string, private functionsUrl: string) {
 
-
         admin.initializeApp({
             credential: admin.credential.cert(cert),
-            databaseURL: dbUrl
+            databaseURL: dbUrl,
         });
 
         this.database = admin.database();
@@ -23,7 +22,7 @@ class Firebase {
      * Retrieve the global statistics
      * @return {Promise<any>} - A promise resolving to the global statistics
      */
-    fetchGlobalStats(): Promise<any> {
+    public fetchGlobalStats(): Promise<any> {
         const globalRef = this.database.ref('global');
         return new Promise((resolve, reject) => {
             globalRef.on('value',
@@ -31,7 +30,7 @@ class Firebase {
                     if (data) {
                         resolve(data.val());
                     } else {
-                        reject('snapshot is null')
+                        reject('snapshot is null');
                     }
                 },
                 (error: any) => {
@@ -40,41 +39,41 @@ class Firebase {
         });
     }
 
-    updateData(refName: string, data: any) {
+    public updateData(refName: string, data: any) {
         const ref = this.database.ref(refName);
         ref.update(data);
     }
 
-    setData(refName: string, data: any) {
+    public setData(refName: string, data: any) {
         const ref = this.database.ref(refName);
         ref.set(data);
     }
 
-    incrementNumber(refName: string, value: number) {
+    public incrementNumber(refName: string, value: number) {
         const ref = this.database.ref(refName);
-        ref.transaction((current_value) => {
-            return (current_value || 0) + value;
+        ref.transaction((currentValue) => {
+            return (currentValue || 0) + value;
         });
     }
 
-    updateWordCount(id: string, word: string) {
+    public updateWordCount(id: string, word: string) {
         const wordRef = this.database.ref(`wordCount/${id}/word`);
         const scoreRef = this.database.ref(`wordCount/${id}/score`);
 
         wordRef.set(word);
 
-        scoreRef.transaction((current_value) => {
-            return (current_value || 0) + 1;
+        scoreRef.transaction((currentValue) => {
+            return (currentValue || 0) + 1;
         });
     }
 
-    async getRating(message: string): Promise<number> {
+    public async getRating(message: string): Promise<number> {
         const fetchOptions = {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
             body: 'message=' + message,
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+            method: 'POST',
         };
 
         let jsonResponse;
@@ -87,7 +86,7 @@ class Firebase {
             throw new Error('Rating error: Could not connect to function');
         }
 
-        if(jsonResponse.rating) {
+        if (jsonResponse.rating) {
             return jsonResponse.rating;
         } else {
             throw new Error('Rating error: function did not return rating');
@@ -95,4 +94,4 @@ class Firebase {
     }
 }
 
-export = Firebase;
+export default Firebase;

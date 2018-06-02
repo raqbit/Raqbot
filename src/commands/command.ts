@@ -1,5 +1,5 @@
-import Discord = require('discord.js');
-import Raqbot = require('../bot');
+import * as Discord from 'discord.js';
+import Raqbot from '../bot';
 
 abstract class Command {
 
@@ -17,7 +17,7 @@ abstract class Command {
      * @param message - Message event that caused command to execute
      * @param args  - Passed command argruments without label
      */
-    execute(message: Discord.Message, args: string[]) { }
+    public execute(message: Discord.Message, args: string[]) { }
 }
 
-export = Command;
+export default Command;

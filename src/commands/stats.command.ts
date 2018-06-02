@@ -1,8 +1,8 @@
-import Discord = require('discord.js');
-import Raqbot = require('../bot');
+import * as  Discord from 'discord.js';
+import Raqbot from '../bot';
 
-import Command = require('./command');
-import Firebase = require('../util/firebase');
+import Command from './command';
+import Firebase from '../util/firebase';
 
 class StatsCommand extends Command {
 
@@ -49,4 +49,4 @@ class StatsCommand extends Command {
     }
 }
 
-export = StatsCommand;
+export default StatsCommand;

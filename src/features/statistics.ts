@@ -1,9 +1,9 @@
-import Discord = require('discord.js');
-import Firebase = require('../util/firebase');
+import * as Discord from 'discord.js';
+import Firebase from '../util/firebase';
 
-import crypto = require('crypto');
+import * as crypto from 'crypto';
 
-import util = require('../util/util');
+import util from '../util/util';
 
 class Statistics {
     /**
@@ -12,25 +12,25 @@ class Statistics {
     private firebase: Firebase;
 
     constructor(firebase: Firebase) {
-        this.firebase = firebase
+        this.firebase = firebase;
     }
 
-    evalMessage(message: Discord.Message) {
+    public evalMessage(message: Discord.Message) {
         this.updateMsgCount(message.author.username);
         this.updateCharCount(message.author.username, message.content.length);
         this.updateWordCount(message.content);
         this.updateGlobalCount(message.content.length);
     }
 
-    updateMsgCount(username: string) {
+    public updateMsgCount(username: string) {
         this.firebase.incrementNumber(`msgCount/${username}`, 1);
     }
 
-    updateCharCount(username: string, messageLength: number) {
-        this.firebase.incrementNumber(`charCount/${username}`, messageLength)
+    public updateCharCount(username: string, messageLength: number) {
+        this.firebase.incrementNumber(`charCount/${username}`, messageLength);
     }
 
-    updateWordCount(messageContent: string) {
+    public updateWordCount(messageContent: string) {
         const wordList = util.filterAndSplit(messageContent);
 
         wordList.forEach((word: string) => {
@@ -40,7 +40,7 @@ class Statistics {
         });
     }
 
-    updateGlobalCount(messageLength: number) {
+    public updateGlobalCount(messageLength: number) {
         // global message count
         this.firebase.incrementNumber('global/msgCount', 1);
 
@@ -48,4 +48,4 @@ class Statistics {
     }
 }
 
-export = Statistics;
+export default Statistics;

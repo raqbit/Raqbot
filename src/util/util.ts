@@ -1,36 +1,41 @@
-import linkifyIt = require('linkify-it');
+import * as fs from 'fs';
+import * as linkifyIt from 'linkify-it';
+import * as path from 'path';
+
 const linkify = linkifyIt();
 
 class Util {
-    static filterAndSplit(string: string) {
-        const detectLinks = linkify.match(string);
+    public static filterAndSplit(message: string) {
+        const matches = linkify.match(message);
 
         // Stripping all links
-        if (detectLinks) {
-            for (let i = 0; i < detectLinks.length; i++) {
-                string = string.replace(detectLinks[i].raw, '');
+        if (matches) {
+            for (const match of matches) {
+                message = message.replace(match.raw, '');
             }
         }
 
-        // Replace anything that can't be a js opbject
+        // Replace anything that can't be a js object
         // TODO: Kind of obsolete because of new code
-        string = string
+        message = message
             .replace(/[.,\/\\#!\?$%\^&\*;:"{}=\-_`~()]/g, '')
             .replace(/<@.{0,32}>/, '')
             .replace(/\s{2,}/g, ' ')
             .replace(/'.*'/g, '$1').toLowerCase();
-        const wordList = string.split(' ');
-
-        return wordList;
+        return message.split(' ');
     }
 
-    static async sleep(amount: number) {
-        return new Promise(((resolve) =>  {
+    public static async sleep(amount: number) {
+        return new Promise(((resolve) => {
             setTimeout(() => {
                 resolve();
             }, amount);
         }));
     }
+
+    public static loadJSONFile(filePath: string) {
+        return JSON.parse(fs.readFileSync(path.join(__dirname, filePath), 'utf8'));
+    }
 }
 
-export = Util;
+export default Util;

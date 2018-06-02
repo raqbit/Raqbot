@@ -1,8 +1,8 @@
-import Discord = require('discord.js');
-import Raqbot = require('../bot');
-import Command = require('./command')
-import StatsCommand = require('./stats.command')
-import RateCommand = require("./rate.command");
+import * as Discord from 'discord.js';
+import Raqbot from '../bot';
+import Command from './command';
+import RateCommand from "./rate.command";
+import StatsCommand from './stats.command';
 
 class CommandManager {
 
@@ -31,10 +31,10 @@ class CommandManager {
         args[0] = args[0].substring(1, args[0].length);
 
         // Looping over all commands
-        for (let command of this.commands) {
+        for (const command of this.commands) {
 
-            //Looping over all command aliases
-            for (let alias of command.aliases) {
+            // Looping over all command aliases
+            for (const alias of command.aliases) {
                 if (args[0] === alias) {
 
                     // Executing command and passing the arguments without arg[0] (label)
@@ -48,4 +48,4 @@ class CommandManager {
 
 }
 
-export = CommandManager;
+export default CommandManager;
