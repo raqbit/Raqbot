@@ -34,8 +34,6 @@ class RateCommand extends Command {
 
             await message.react(emoteUtil.ratingNums[rating]);
 
-            await Util.sleep(200);
-
             if (rating === 5) {
                 await message.react(emoteUtil.feelsgoodman)
             } else if (rating === 0) {
@@ -44,7 +42,7 @@ class RateCommand extends Command {
         } catch (err) {
             console.log(err);
             message.channel.send('Something went wrong while trying to get a rating, please try again.');
-            await message.clearReactions();
+            await message.reactions.forEach(value => value.remove())
         }
 
 
