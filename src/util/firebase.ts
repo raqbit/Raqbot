@@ -77,13 +77,20 @@ class Firebase {
             body: 'message=' + message,
         };
 
+        let jsonResponse;
+
         try {
             const res = await fetch(this.functionsUrl + '/rating', fetchOptions);
-            const jsonResponse = await res.json();
-            return jsonResponse.rating;
+            jsonResponse = await res.json();
         } catch (e) {
             console.log(e);
-            throw new Error('rating-error');
+            throw new Error('Rating error: Could not connect to function');
+        }
+
+        if(jsonResponse.rating) {
+            return jsonResponse.rating;
+        } else {
+            throw new Error('Rating error: function did not return rating');
         }
     }
 }
