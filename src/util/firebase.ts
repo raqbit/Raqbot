@@ -86,7 +86,8 @@ class Firebase {
             throw new Error('Rating error: Could not connect to function');
         }
 
-        if (jsonResponse.type !== "success") {
+
+        if (jsonResponse.type === "success") {
             return jsonResponse.rating;
         } else {
             throw new Error('Rating error: function did not return rating');
