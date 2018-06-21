@@ -22,8 +22,9 @@ class RateCommand extends Command {
         // Arguments were split by space and label removed.
         let msgToBeRated = args.join(' ');
 
-        msgToBeRated = msgToBeRated.replace('me', message.author.username);
-        msgToBeRated = msgToBeRated.replace('my', message.author.username + '\'s');
+        msgToBeRated = msgToBeRated.replace(' me ', message.author.username);
+        msgToBeRated = msgToBeRated.replace(' myself ', message.author.username);
+        msgToBeRated = msgToBeRated.replace(' my ', message.author.username + '\'s');
         msgToBeRated = msgToBeRated.replace(/<@!?([^&>]*)>/, (_, p1, offset, mentionText) => {
             const member = message.guild.members.get(p1);
             return member ? member.user.username : mentionText;
