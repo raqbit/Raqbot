@@ -13,20 +13,20 @@
   },
   "dependencies": {
     "bufferutil": "^4.0.1",
-    "discord.js": "^11.3.2",
+    "discord.js": "^11.5.1",
     "erlpack": "hammerandchisel/erlpack",
-    "firebase-admin": "^7.0.0",
-    "linkify-it": "^2.0.3",
-    "node-fetch": "^2.1.2",
-    "tlds": "^1.203.1",
-    "uws": "^100.0.1"
+    "firebase-admin": "^8.9.2",
+    "linkify-it": "^2.2.0",
+    "node-fetch": "^2.6.0",
+    "tlds": "^1.207.0",
+    "@discordjs/uws": "^11.149.1"
   },
   "devDependencies": {
-    "@types/linkify-it": "^2.0.3",
-    "@types/node": "^11.10.4",
-    "@types/node-fetch": "^2.1.0",
-    "nodemon": "^1.17.4",
-    "ts-node": "^8.0.2",
-    "typescript": "^3.3.3333"
+    "@types/linkify-it": "^2.1.0",
+    "@types/node": "^13.7.0",
+    "@types/node-fetch": "^2.5.4",
+    "nodemon": "^2.0.2",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
   }
 }
