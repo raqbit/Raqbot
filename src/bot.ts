@@ -102,7 +102,7 @@ class Raqbot {
 
     private onBotReady() {
         // noinspection JSIgnoredPromiseFromCall
-        this.client.user.setPresence({afk: false, status: "online", game: {name: "Spying on the Definitely not a Mancave"}});
+        this.client.user.setPresence({afk: false, status: "online", game: {name: "Spying on the SpoOoOoky Cave"}});
     }
 }
 
